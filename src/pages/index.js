@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Helmet from "react-helmet"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -7,24 +8,25 @@ import Seo from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
+    <Helmet>
+    <script
+      type="text/javascript"
+      id="botcopy-embedder-d7lcfheammjct"
+      className="botcopy-embedder-d7lcfheammjct" 
+      data-botid="61b7d8f1f34a7e00096b54cc"
+      src = 'https://widget.botcopy.com/js/injection.js'
+      dangerouslySetInnerHTML={{
+        __html: `
+              var s = document.createElement('script'); 
+              s.type = 'text/javascript'; s.async = true; 
+              s.src = 'https://widget.botcopy.com/js/injection.js'; 
+              document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
+            `,
+      }}
     />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
+
+    </Helmet>
+
   </Layout>
 )
 
