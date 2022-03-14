@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import Helmet from "react-helmet"
 import { StaticImage } from "gatsby-plugin-image"
+import Cookies from 'universal-cookie';
 import { Auth0Provider } from "@auth0/auth0-react";
 import * as queryString from "query-string";
 
@@ -12,6 +13,15 @@ const IndexPage = ({ location }) => {
   console.log(location); // inspect location for yourself
   const { access_token} = queryString.parse(location.hash);
   console.log(access_token);
+  const cookies = new Cookies();
+  if (access_token != null) {
+    // if (cookies.get('jwt') != null) {
+    //   send that info to database
+    // }
+    console.log("error checking");
+    cookies.set('jwt', access_token, { path: '/' });
+    console.log(cookies.get('jwt')); // Pacman
+  }
   // function Botcopy() {
   //   console.log("testing");
   // }
@@ -28,7 +38,7 @@ const IndexPage = ({ location }) => {
         case 'bc-auth-required':
           console.log("bc-auth-required")
           this.Botcopy.setESParameters({
-            webhookHeaders: {jwt: access_token}
+            webhookHeaders: {jwt: cookies.get('jwt')}
           })
           break
       }

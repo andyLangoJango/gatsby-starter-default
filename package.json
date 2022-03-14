@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@auth0/auth0-react": "^1.9.0",
+    "cookie-parser": "^1.4.6",
     "gatsby": "^4.4.0",
     "gatsby-plugin-gatsby-cloud": "^4.4.0",
     "gatsby-plugin-image": "^2.4.0",
@@ -20,7 +21,8 @@
     "query-string": "^7.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
     "prettier": "^2.5.1"
