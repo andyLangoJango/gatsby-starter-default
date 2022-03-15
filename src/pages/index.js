@@ -29,12 +29,7 @@ const IndexPage = ({ location }) => {
     // On mount, we check if a user is logged in.
     // If so, we'll retrieve the authenticated user's profile.
     window.addEventListener('botcopy-events', function (e) {
-      switch(e.detail.type) {
-        case 'bc-initialized':
-          console.log("bc-initialized")
-          // do something
-          break
-  
+      switch(e.detail.type) {  
         case 'bc-auth-required':
           console.log("bc-auth-required")
           this.Botcopy.setESParameters({
@@ -42,9 +37,12 @@ const IndexPage = ({ location }) => {
           })
           break
       }
-  });
+      this.Botcopy.setESParameters({
+        webhookHeaders: {jwt: cookies.get('jwt')}
+      })
+    }, []);
     
-  }, []);
+  });
     return (
         <Helmet>
         <script
